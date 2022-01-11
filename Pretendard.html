@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webfontworld</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        body {padding-bottom: 200px;}
+        li {list-style: none;}
+        table {width: 100%}
+        hr {margin: 100px 0; border: 0; border-bottom: 1px solid #ebebeb}
+        img {width: 100%; vertical-align: top;}
+        code, pre {background-color: #f8f8f8;-webkit-font-smoothing: initial;}
+        a {text-decoration: none; color: #000;}
+
+        /* font-face */
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 100;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 200;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 300;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 400;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 500;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 600;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 700;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 800;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.ttf') format("truetype");
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Pretendard';
+            font-weight: 900;
+            font-style: normal;
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.eot');
+            src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.eot?#iefix') format('embedded-opentype'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf') format("truetype");
+            font-display: swap;
+        }
+        code, pre {font-family: 'Pretendard';}
+        .weightInput {font-family: 'Pretendard';}
+        .hgroup h1 {font-family: 'Pretendard';}
+        .ff {font-family: 'Pretendard';}
+        .fw {font-weight: 300;}
+
+        .comments h2 {font-family: 'Pretendard';}
+        .comments .comment-list ul li p {font-family: 'Pretendard';}
+        .comments .comment-form textarea {font-family: 'Pretendard';}
+        .comments .comment-form .submit .btn {font-family: 'Pretendard';}
+        .related-articles ul li .title {font-family: 'Pretendard';}
+        .tags {font-family: 'Pretendard';}
+
+        #webfontworld {padding-top: 200px;}
+        .wf-intro {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-view {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-weight {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-layout {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-size {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-info {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-woff {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-cross {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .wf-style {width: 100%; max-width: 1200px; margin: 0 auto;}
+        .weightInput {width: 100%; padding: 20px 40px; margin: 20px 0 10px; background: #f1f1f1; border: 0; border-radius: 50px; font-size: 16px; box-sizing: border-box;}
+
+        .wf-intro .info {display: flex; flex-wrap: wrap; justify-content: space-between;}
+        .wf-intro .info .img {width: 32%; }
+        .wf-intro .info .click {width: 66%; }
+        .wf-intro .info .click table {border: 1px solid #dadce0; border-bottom: 0; border-spacing: 0;}
+        .wf-intro .info .click table th {width: 50%; padding: 19px 24px 15px 24px; border-bottom: 1px solid #dadce0; background-color: #e8f2ff;}
+        .wf-intro .info .click table td {width: 50%; height: 20px; padding: 19px 24px 15px 24px; border-right: 1px solid #dadce0; border-bottom: 1px dashed #dadce0; text-align: center;}
+        .wf-intro .info .click table td:last-child {border-right: 0;}
+        .wf-intro .info .click table tr:last-child td {border-bottom-style: solid}
+        .wf-intro .info .click table td:hover {background: #e8f2ff; cursor: pointer;}
+        .wf-intro .info .click .down {margin-top: 9px;}
+        .wf-intro .info .click .down a {background: #000; color: #fff; padding: 15px 44px 15px 24px; margin-right: 10px; display: inline-block; position: relative;}
+        .wf-intro .info .click .down a::after {content: ''; background-image: url(https://hangeul.naver.com/img/sp_assorted_font_v2.png); background-size: 260px 201px; background-position: -28px -149px; position: absolute; right: 16px; top: 12px; width: 23px; height: 22px;}
+        .wf-intro .css {margin-top: 80px;}
+        .wf-intro .css h3 {font-size: 34px; margin-bottom: 20px; margin-top: 40px;}
+        .wf-intro .css .menu {border-bottom: 1px solid #dadce0; height: 56px;}
+        .wf-intro .css .menu li {display: inline; font-size: 18px; margin-bottom: 10px;}
+        .wf-intro .css .menu li a {padding: 19px 24px 15px 24px; display: inline-block; height: 21px;}
+        .wf-intro .css .menu li.active a { background: #e8f2ff; border-bottom: 2px solid #174ea6;}
+        .wf-intro .css .cont {margin-top: 20px;}
+        .wf-intro .css pre {padding: 20px; line-height: 1.6;}
+        
+        .wf-info .license {margin-top: 80px;}
+        .wf-info .license h3 {width: 100%; font-size: 34px; margin-bottom: 20px; margin-top: 40px;}
+        .wf-info .license table { border-spacing: 0; font-size: 18px;}
+        .wf-info .license table th {padding: 19px 24px 15px 24px; background-color: #e8f2ff; border-bottom: 2px solid #174ea6; text-align: center;}
+        .wf-info .license table td {padding: 19px 24px 15px 24px; border-bottom: 1px solid #dadce0; text-align: center; border-right: 1px solid #dadce0}
+        .wf-info .license table td:last-child {border-right: 0;}
+        .wf-info .license table td.red {color: red}
+        .wf-info .license p {margin-top: 20px; line-height: 1.6;}
+        .wf-info .list {padding-top: 30px;}
+        .wf-info .list li {line-height: 1.8; position: relative; padding-left: 15px;}
+        .wf-info .list li::before {content: ""; position: absolute; left: 0; top: 10px; width: 5px; height: 5px; background: #000; border-radius: 50%;}
+        .wf-info .list li.line {text-decoration: underline;}
+
+        .wf-weight h3 {font-size: 34px; margin-top: 40px;}
+        .wf-weight li {padding: 60px 0 20px; font-size: 40px; border-bottom: 1px solid #f1f1f1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; position: relative;}
+        .wf-weight li.wNormal {font-weight: normal;}
+        .wf-weight li.w100 {font-weight: 100;}
+        .wf-weight li.w200 {font-weight: 200;}
+        .wf-weight li.w300 {font-weight: 300;}
+        .wf-weight li.w400 {font-weight: 400;}
+        .wf-weight li.w500 {font-weight: 500;}
+        .wf-weight li.w600 {font-weight: 600;}
+        .wf-weight li.w700 {font-weight: 700;}
+        .wf-weight li.w800 {font-weight: 800;}
+        .wf-weight li.w900 {font-weight: 900;}
+        .wf-weight li::before {position: absolute; left: 0; top: 20px; font-size: 14px; background: #f1f1f1; padding: 3px 20px; border-radius: 20px;}
+        .wf-weight li.wNormal::before {content: 'font-weight: normal';}
+        .wf-weight li.w100::before {content: 'font-weight: 100';}
+        .wf-weight li.w200::before {content: 'font-weight: 200';}
+        .wf-weight li.w300::before {content: 'font-weight: 300';}
+        .wf-weight li.w400::before {content: 'font-weight: 400';}
+        .wf-weight li.w500::before {content: 'font-weight: 500';}
+        .wf-weight li.w600::before {content: 'font-weight: 600';}
+        .wf-weight li.w700::before {content: 'font-weight: 700';}
+        .wf-weight li.w800::before {content: 'font-weight: 800';}
+        .wf-weight li.w900::before {content: 'font-weight: 900';}
+
+        .wf-size h3 {font-size: 34px; margin-top: 100px;}
+        .wf-size ul {margin-top: 10px;}
+        .wf-size li {position: relative; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-left: 60px; line-height: 1.7;}
+        .wf-size h3 span {font-size: 14px; background: #f1f1f1; padding: 3px 20px; border-radius: 20px; margin-right: 5px; vertical-align: 2px; cursor: pointer; font-weight: normal;}
+        .wf-size h3 span.active{background-color: #000;color: #fff;}
+        .wf-size li::before {content: ''; position: absolute; left: 0; top: 0px; font-size: 12px;}
+        .wf-size li.s10 {font-size: 10px;} .wf-size li.s10::before {content: '10px'; font-size: 10px;}
+        .wf-size li.s12 {font-size: 12px;} .wf-size li.s12::before {content: '12px';}
+        .wf-size li.s14 {font-size: 14px;} .wf-size li.s14::before {content: '14px';}
+        .wf-size li.s16 {font-size: 16px;} .wf-size li.s16::before {content: '16px';}
+        .wf-size li.s18 {font-size: 18px;} .wf-size li.s18::before {content: '18px';}
+        .wf-size li.s20 {font-size: 20px;} .wf-size li.s20::before {content: '20px';}
+        .wf-size li.s24 {font-size: 24px;} .wf-size li.s24::before {content: '24px';}
+        .wf-size li.s28 {font-size: 28px;} .wf-size li.s28::before {content: '28px';}
+        .wf-size li.s32 {font-size: 32px;} .wf-size li.s32::before {content: '32px';}
+        .wf-size li.s36 {font-size: 36px;} .wf-size li.s36::before {content: '36px';}
+        .wf-size li.s40 {font-size: 40px;} .wf-size li.s40::before {content: '40px';}
+        .wf-size li.s48 {font-size: 48px;} .wf-size li.s48::before {content: '48px';}
+        .wf-size li.s56 {font-size: 56px;} .wf-size li.s56::before {content: '56px';}
+        .wf-size li.s64 {font-size: 64px;} .wf-size li.s64::before {content: '64px';}
+
+        .wf-layout h3 {font-size: 34px; margin-top: 100px;}
+        .wf-layout h3 span {font-size: 14px; background: #f1f1f1; padding: 3px 20px; border-radius: 20px; margin-right: 5px; vertical-align: 2px; cursor: pointer; font-weight: normal;}
+        .wf-layout h3 span.active {background-color: #000; color: #fff;}
+        .wf-layout .flex {overflow: hidden; margin-top: 20px;}
+        .wf-layout .flex div {float: left; line-height: 1.4; margin-right: 2%; margin-bottom: 2%; text-align: justify;}
+        .wf-layout .flex .last {margin-right: 0;}
+        .wf-layout .flex .col4 {width: 23.5%;}
+        .wf-layout .flex .col3 {width: 32%}
+        .wf-layout .flex .col2 {width: 49%}
+        .wf-layout .flex .col1 {width: 100%; margin-right: 0;}
+
+        .wf-view h3 {font-size: 34px; margin-bottom: 20px; margin-top: 100px;}
+        .wf-view h3 span {font-size: 14px; background: #f1f1f1; padding: 3px 20px; border-radius: 20px; margin-right: 5px; vertical-align: 2px; cursor: pointer; font-weight: normal;}
+        .wf-view h3 span.active {background-color: #000; color: #fff;}
+        .wf-view .view {height: 500px; display: flex; align-items: center; justify-content: center; background: #f8f8f8;}
+        .wf-view .view > div {text-align: center; font-size: 8vw; }
+        .wf-view .view strong {display: block; font-weight: normal;}
+        .wf-view .view em {display: block; font-style: normal; font-size: 4vw; margin-top: 1vw;}
+        .wf-view .style {margin-bottom: 20px;}
+        .wf-view .style > span {position: relative; display: inline-block; width: 50px; height: 50px; border-radius: 50%; overflow: hidden; background: #f8f8f8; border: 2px solid #000; cursor: pointer;}
+        .wf-view .style > span::after {content: ''; width: 60px; height: 60px; background: #000; position: absolute; right: -30px; bottom: -23px; transform: rotate(45deg);}
+        .wf-view .style .style1 {background: #f8f8f8;} 
+        .wf-view .style .style1::after {background: #000;}
+        .wf-view .style .style2 {background: #000;} 
+        .wf-view .style .style2::after {background: #f8f8f8;}
+        .wf-view .style .style3 {background: rgb(231, 50, 50);} 
+        .wf-view .style .style3::after {background: #fff;}
+        .wf-view .style .style4 {background: rgb(50, 110, 231);} 
+        .wf-view .style .style4::after {background: #fff;}
+        .wf-view .style .style5 {background: rgb(195, 231, 50);} 
+        .wf-view .style .style5::after {background: #fff;}
+        .wf-view .style .style6 {background: rgb(153, 50, 231);} 
+        .wf-view .style .style6::after {background: #fff;}
+        .wf-view .style .style7 {background: #C0E2E3;} 
+        .wf-view .style .style7::after {background: #DE4E40;}
+        .wf-view .style .style8 {background: #77DBD1;} 
+        .wf-view .style .style8::after {background: #765b59;}
+        .wf-view .style .style9 {background: #1A2678;} 
+        .wf-view .style .style9::after {background: #E9C4BA;}
+        .wf-view .style .style10 {background: #FBEF82;} 
+        .wf-view .style .style10::after {background: #C2323A;}
+        .wf-view .style .style11 {background: #4C3B4A;} 
+        .wf-view .style .style11::after {background: #D65C57;}
+        .wf-view .style .style12 {background: #937CCA;} 
+        .wf-view .style .style12::after {background: #F9D8A1;}
+        .wf-view .style .style13 {background: #194685;} 
+        .wf-view .style .style13::after {background: #FAFA54;}
+
+        .wf-woff {margin-top: 80px;} 
+        .wf-woff h3 {font-size: 34px; margin-bottom: 20px; margin-top: 40px;}
+        .wf-woff table {border-spacing: 0; border-top: 1px solid #dadce0; line-height: 1.5;}
+        .wf-woff table th {padding: 14px; background-color: #e8f2ff; border-bottom: 1px solid #dadce0; border-right: 1px solid #dadce0; text-align: left;}
+        .wf-woff table td {padding: 14px; border-bottom: 1px solid #dadce0; border-right: 1px solid #dadce0}
+        .wf-woff table td:last-child {border-right: 0;}
+        .wf-woff table tr.last td {border-bottom: 2px solid #000;}
+        .wf-woff table tr.last th {border-bottom: 2px solid #000;}
+        .wf-woff table .line {border-bottom: 2px solid #000; text-align: center;}
+        .wf-woff table .ce {text-align: center;}
+        .wf-woff table .bg {background-color: #f5f5f5;}
+        .wf-woff table small {display: block;}
+
+        .wf-cross {margin-top: 80px;}
+        .wf-cross h3 {font-size: 34px; margin-bottom: 20px; margin-top: 40px;}
+        .wf-cross table {text-align: center; border-spacing: 0;}
+        .wf-cross table th {padding: 19px 24px 15px 24px; border-bottom: 1px solid #dadce0; background: #e8f2ff;}
+        .wf-cross table td {padding: 19px 24px 15px 24px; border-bottom: 1px solid #dadce0;}
+        .wf-cross table .red {background: #ffe8e8; color: red}
+
+        nav {padding: 100px 50px 100px; font-family: 'NEXONLv1Gothic';}
+        nav li {display: inline-block; margin-bottom: 10px;}
+        nav li a {background: #fff; color: #000; border: 1px solid #000; padding: 7px 14px 5px; display: inline-block; border-radius: 50px;}
+        nav li.active a {background: #000; color: #fff;}
+    </style>
+</head>
+<body>
+
+    <div id="webfontworld">
+        <div class="wf-intro ff">
+            <div class="info">
+                <div class="img">
+                    <img src="https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard.jpg" alt="Pretendard">
+                </div>
+                
+                <div class="click">
+                    <table>
+                        <colgroup>
+                            <col style="width: 30%" />
+                            <col style="width: 70%" />
+                        </colgroup>
+                        <tr>
+                            <th colspan="2">프리텐다드(Pretendard)</a></th>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="https://wess.tistory.com/pages/hangul">ㄱ ㄴ ㄷ ㄹ ㅁ ㅂ ㅅ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ</a></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="https://wess.tistory.com/pages/english">a b c d e f g h i j k l n m o p q r s t u w x y z</a></td>
+                        </tr> 
+                        <tr> 
+                            <td colspan="2"><a href="https://wess.tistory.com/pages/number">1 2 3 4 5 6 7 8 9 0 ! @ # $ % ^ & *</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wess.tistory.com/pages/gothic">고딕체</a></td>
+                            <td><a href="https://wess.tistory.com/pages/company">함렛</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="https://wess.tistory.com/pages/style">9style</a></td>
+                            <td><a href="https://wess.tistory.com/pages/otf">OFT</a></td>
+                        </tr>
+                    </table>
+                    <div class="down">
+                        <a href="https://cactus.tistory.com/306" target="_blank">다운로드</a>
+                        <a href="https://github.com/webfontworld/pretendard" target="_blank">웹 폰트 다운로드</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="css fw">
+                <h3 class="fw">웹 폰트 사용하기</h3>
+                <div class="menu">
+                    <ul>
+                        <li class="active"><a href="#c">CSS 설정하기</a></li>
+                        <li><a href="#c">link 방식</a></li>
+                        <li><a href="#c">import 방식</a></li>
+                        <li><a href="#c">font-face 방식</a></li>
+                    </ul>
+                </div>
+                <div class="cont">
+                    <div>
+<pre><code>font-family: 'Pretendard';</code></pre>
+                    </div>
+                    <div>
+<pre><code>&lt;link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet"&gt;</code></pre>
+                    </div>
+                    <div>
+<pre><code>@import url('https://webfontworld.github.io/pretendard/Pretendard.css');</code></pre>
+                    </div>
+                    <div>
+<pre><code>@font-face {
+    font-family: 'Pretendard';
+    font-weight: 100;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 200;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraLight.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Light.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Medium.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 600;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 800;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-ExtraBold.ttf') format("truetype");
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 900;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Black.ttf') format("truetype");
+    font-display: swap;
+}
+</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wf-view ff">
+            <h3 class="fw">폰트 살펴보기 <span>100</span><span>200</span><span class="active">300</span><span>400</span><span>500</span><span>600</span><span>700</span><span>800</span><span>900</span></h3>
+            <div class="style">
+                <span class="style1" data-bg1="#f8f8f8" data-bg2="#000"></span>
+                <span class="style2" data-bg1="#000" data-bg2="#fff"></span>
+                <span class="style3" data-bg1="#e73231" data-bg2="#fff"></span>
+                <span class="style4" data-bg1="#326ee6" data-bg2="#fff"></span>
+                <span class="style5" data-bg1="#c3e732" data-bg2="#fff"></span>
+                <span class="style6" data-bg1="#9932e7" data-bg2="#fff"></span>
+                <span class="style7" data-bg1="#C0E2E3" data-bg2="#DE4E40"></span>
+                <span class="style8" data-bg1="#77DBD1" data-bg2="#765b59"></span>
+                <span class="style9" data-bg1="#1A2678" data-bg2="#E9C4BA"></span>
+                <span class="style10" data-bg1="#FBEF82" data-bg2="#C2323A"></span>
+                <span class="style11" data-bg1="#4C3B4A" data-bg2="#D65C57"></span>
+                <span class="style12" data-bg1="#937CCA" data-bg2="#F9D8A1"></span>
+                <span class="style13" data-bg1="#194685" data-bg2="#FAFA54"></span>
+            </div>
+            <div class="view">
+                <div>
+                    <strong>프리텐다드</strong>
+                    <em>Pretendard</em>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="wf-weight ff">
+            <h3>font-weight</h3>
+            <input type="text" id="wf-weight-input" class="weightInput" placeholder="글씨를 입력하면 변경됩니다!">
+            <ul class="wf-weight-preview">
+                <li class="w100" title="100">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w200" title="200">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w300" title="300">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w400" title="400">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w500" title="500">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w600" title="600">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w700" title="700">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w800" title="800">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+                <li class="w900" title="900">이 폰트의 WEIGHT는 여러가지가 있습니다. 이 폰트의 weight는 여러가지가 있습니다. 이 폰트의 두께는 여러가지가 있습니다.</li>
+            </ul>
+        </div>
+        <!-- //weight -->
+
+        <div class="wf-size ff fw">
+            <h3>font-size <span data-weight="font-weight:100">100</span><span data-weight="font-weight:200">200</span><span class="active" data-weight="font-weight:300">300</span><span data-weight="font-weight:400">400</span><span data-weight="font-weight:500">500</span><span data-weight="font-weight:600">600</span><span data-weight="font-weight:700">700</span><span data-weight="font-weight:800">800</span><span data-weight="font-weight:900">900</span></h3>
+            <input type="text" id="wf-size-input" class="weightInput" placeholder="글씨를 입력하면 변경됩니다!">
+            <ul class="wf-size-preview">
+                <li class="s10">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 가 나 다 라 마 바
+                    사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 가 나 다 라 마 바 사 아 자 차 카 타
+                    파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9</li>
+                <li class="s12">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 가 나 다 라 마 바
+                    사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 가 나 다 라 마 바 사 아 자 차 카 타
+                    파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9</li>
+                <li class="s14">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s16">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s18">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s20">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s24">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s28">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s32">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s36">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s40">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s48">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s56">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+                <li class="s64">가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9
+                    가 나 다 라 마 바 사 아 자 차 카 타 파 하 a b c d e f g h i j k l m n o p q r s t u v w x y z 0 1 2 3 4 5 6 7 8 9 </li>
+            </ul>
+        </div>
+        <!-- //size -->
+
+        <div class="wf-layout ff fw">
+            <h3>Font-layout <span>100</span><span>200</span><span class="active">300</span><span>400</span><span>500</span><span>600</span><span>700</span><span>800</span><span>900</span></h3>
+            <input type="text" id="wf-layout-input" class="weightInput" placeholder="글씨를 입력하면 변경됩니다!">
+            <div class="flex">
+                <div class="col4">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col4">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col4">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col4 last">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.
+                    대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col3">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col3">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col3 last">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.
+                    대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다.</div>
+                <div class="col2">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포ㆍ구속ㆍ압수ㆍ수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지
+                    아니하고는 처벌ㆍ보안처분 또는 강제노역을 받지 아니한다.</div>
+                <div class="col2 last">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다.
+                    대한민국의 주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포ㆍ구속ㆍ압수ㆍ수색 또는 심문을 받지 아니하며, 법률과 적법한
+                    절차에 의하지 아니하고는 처벌ㆍ보안처분 또는 강제노역을 받지 아니한다.</div>
+                <div class="col1">모든 국민은 인간으로서의 존엄과 가치를 가지며, 행복을 추구할 권리를 가진다. 국가는 개인이 가지는 불가침의 기본적 인권을 확인하고 이를 보장할 의무를 진다. 대한민국의 주권은
+                    국민에게 있고, 모든 권력은 국민으로부터 나온다. 모든 국민은 신체의 자유를 가진다. 누구든지 법률에 의하지 아니하고는 체포ㆍ구속ㆍ압수ㆍ수색 또는 심문을 받지 아니하며, 법률과 적법한 절차에 의하지
+                    아니하고는 처벌ㆍ보안처분 또는 강제노역을 받지 아니한다. 모든 국민은 행위시의 법률에 의하여 범죄를 구성하지 아니하는 행위로 소추되지 아니하며, 동일한 범죄에 대하여 거듭 처벌받지 아니한다.</div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="wf-info ff">
+            <div class="license">
+                <h3 class="fw">라이센스 사용 범위 확인하기</h3>
+                <table class="fw">
+                    <thead>
+                        <tr>
+                            <th class="fw">카테고리</th>
+                            <th class="fw">사용 범위</th>
+                            <th class="fw">허용여부</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="5">인쇄</td>
+                            <td>브로슈어, 카탈로그, DM, 전단지, 포스터, 패키지, 캘린더 등 인쇄물</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>책, 만화책, 잡지, 정기간행물, 신문 등 출판물</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>간판, 현수막, 판넬 등 제작물</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>신문광고, 잡지광고, 차량광고 등 광고물</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>인쇄 및 문서 공유를 위한 PDF 파일 제작</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">웹사이트</td>
+                            <td>웹페이지, 광고 배너, 메일, E-브로슈어 등</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>웹서버용 폰트</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="5">영상</td>
+                            <td>방송 및 영상물 자막</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>TV-CF, 온라인 영상광고</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>영화(DVD / 비디오), 오프닝, 엔딩크레딧 자막</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>개인 UCC 및 홍보물</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>E-Learning 콘텐츠, 온라인 동영상강좌, 플래시 강좌</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>포장지</td>
+                            <td>판매용 상품의 패키지</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>임베딩</td>
+                            <td>웹사이트 및 프로그램 서버 내 폰트 탑재, E-book 제작</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>BI/CI</td>
+                            <td>회사명, 브랜드명, 상품명, 로고, 마크, 슬로건, 캐치프레이즈</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">OFL</td>
+                            <td class="red">폰트 파일의 수정, 편집 및 재배포</td>
+                            <td class="red">금지</td>
+                        </tr>
+                        <tr>
+                            <td class="red">폰트 파일의 유료 판매</td>
+                            <td class="red">금지</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">용도</td>
+                            <td>개인적 용도 사용</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>상업적 용도 사용</td>
+                            <td>○</td>
+                        </tr>
+                        <tr>
+                            <td>출처</td>
+                            <td>출처 표시</td>
+                            <td>권장</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="list fw">
+                <li>글꼴 단독 판매를 제외한 모든 상업적 행위 및 수정, 재배포가 가능합니다.</li>
+                <li class="line">제공되는 모든 서체의 지적 재산권을 포함한 모든 권리는 제작사에 있으니, 사용하기 전에 제작사 사이트에 가셔서 꼭 확인하시길 바랍니다.</li>
+            </ul>
+        </div>
+ 
+        <hr>
+
+        <div class="wf-cross ff">
+            <h3 class="fw">웹 폰트 호환성</h3>
+            <table>
+                <tr>
+                    <th></th>
+                    <th><img src="https://tistory2.daumcdn.net/tistory/2933724/skin/images/icon-ie9.png" style="width:30px" alt="익스플로러"></th>
+                    <th><img src="https://tistory3.daumcdn.net/tistory/2851562/skin/images/edge.png" style="width:30px" alt="엣지"></th>
+                    <th><img src="https://tistory3.daumcdn.net/tistory/2851562/skin/images/firefox.png" style="width:30px" alt="파이어폭스"></th>
+                    <th><img src="https://tistory4.daumcdn.net/tistory/2851562/skin/images/safari.gif" style="width:30px" alt="사파리"></th>
+                    <th><img src="https://tistory2.daumcdn.net/tistory/2851562/skin/images/opera.gif" style="width:30px" alt="오페라"></th>
+                    <th><img src="https://tistory2.daumcdn.net/tistory/2851562/skin/images/chrome.png" style="width:30px" alt="크롬"></th>
+                    <th><img src="https://tistory3.daumcdn.net/tistory/2851562/skin/images/whale.png" style="width:30px" alt="웨일"></th>
+                </tr>
+                <tr>
+                    <td>TTF</td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                </tr>
+                <tr>
+                    <td>OTF</td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                </tr>
+                <tr>
+                    <td>WOFF</td>
+                    <td><span title="익스플로러 9.0버전 부터 지원">○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                </tr>
+                <tr>
+                    <td>WOFF2</td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                    <td><span>○</span></td>
+                </tr>
+                <tr>
+                    <td>SVG</td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td>○</td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                </tr>
+                <tr>
+                    <td>EOT</td>
+                    <td><span title="6.0">○</span></td>
+                    <td><span title="6.0">○</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                    <td class="red"><span>지원안함</span></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- <div class="wf-woff ff">
+            <h3 class="fw">폰트 파일</h3>
+            <table class="fw">
+                <tbody>
+                    <tr>
+                        <th rowspan="5" class="ce fw">안동</th>
+                        <th rowspan="5" class="ce fw">안동 까투리체</th>
+                        <td rowspan="5" class="ce">
+                            font-weight: normal
+                        </td>
+                        <td class="ce">woff</td>
+                        <td class="ce bg">629KB</td>
+                        <td>
+                            https://cdn.jsdelivr.net/gh/webfontworld/andong/AndongKaturi.woff
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">woff2</td>
+                        <td class="ce bg">305KB</td>
+                        <td>
+                            https://cdn.jsdelivr.net/gh/webfontworld/andong/AndongKaturi.woff2
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">eot</td>
+                        <td class="ce bg">1.8MB</td>
+                        <td>
+                            https://cdn.jsdelivr.net/gh/webfontworld/andong/AndongKaturi.eot
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">ttf</td>
+                        <td class="ce bg">1.8MB</td>
+                        <td>
+                            https://cdn.jsdelivr.net/gh/webfontworld/andong/AndongKaturi.ttf
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="ce">otf</td>
+                        <td class="ce bg">569KB</td>
+                        <td>
+                            https://cdn.jsdelivr.net/gh/webfontworld/andong/AndongKaturi.otf
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> -->
+    </div>
+    <!-- //webfontworld -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var tabBtn = $(".css .menu li");
+        var tabCont = $(".css .cont div");
+        tabCont.hide().eq(0).show();
+        tabBtn.click(function(e) {
+            e.preventDefault();
+            var target = $(this);
+            var index = target.index();
+            tabBtn.removeClass("active");
+            target.addClass("active");
+            tabCont.css("display", "none");
+            tabCont.eq(index).css("display", "block");
+        });
+        $(".wf-size h3 span").click(function () {
+            var target = $(this);
+            $(".wf-size h3 span").removeClass("active");
+            target.addClass("active");
+            let weight = $(this).text();
+            $(".wf-size li").css("font-weight", weight);
+        });
+        $(".wf-layout h3 span").click(function () {
+            var target = $(this);
+            $(".wf-layout h3 span").removeClass("active");
+            target.addClass("active");
+            let weight = $(this).text();
+            $(".wf-layout .flex div ").css("font-weight", weight);
+        });
+        $(".wf-view h3 span").click(function () {
+            var target = $(this);
+            $(".wf-view h3 span").removeClass("active");
+            target.addClass("active");
+            let weight = $(this).text();
+            $(".wf-view .view strong, .wf-view .view em").css("font-weight", weight);
+        });
+        $(".style span").click(function(){
+            let bg1 = $(this).data("bg1");
+            let bg2 = $(this).data("bg2");
+            $(".view").css("background", bg1);
+            $(".view strong, .view em").css("color", bg2);
+        });
+        $("#wf-weight-input").on("change keyup state", function (e) {
+            $(".wf-weight-preview li").each(function(){
+                if ($("#wf-weight-input").val() === '') {
+                    $(this).text("글씨를 입력하면 변경됩니다.");
+                } else {
+                    $(this).text($("#wf-weight-input").val());
+                }
+            });
+        });
+        $("#wf-size-input").on("change keyup state", function (e) {
+            $(".wf-size-preview li").each(function () {
+                if ($("#wf-size-input").val() === '') {
+                    $(this).text("글씨를 입력하면 변경됩니다.");
+                } else {
+                    $(this).text($("#wf-size-input").val());
+                }
+            });
+        });
+        $("#wf-layout-input").on("change keyup state", function (e) {
+            $(".wf-layout .flex div").each(function () {
+                if ($("#wf-layout-input").val() === '') {
+                    $(this).text("글씨를 입력하면 변경됩니다.");
+                } else {
+                    $(this).text($("#wf-layout-input").val());
+                }
+            });
+        });
+    </script>
+</body>
+</html>
